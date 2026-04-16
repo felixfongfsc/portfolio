@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav__logo" href="#">Felix Fong</a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span>
+        <span class="nav__hamburger" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a class="nav__link" href="#">Home</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#works">Works</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HOME ===================== -->
+    <section id="home" class="home">
+      <div class="home__blobs" aria-hidden="true">
+        <div class="home__blob home__blob--1"></div>
+        <div class="home__blob home__blob--2"></div>
+        <div class="home__blob home__blob--3"></div>
+      </div>
+      <div class="home__inner">
+        <h1 class="home__name">Felix Fong</h1>
+        <p class="home__subtitle">UI / UX Designer</p>
+        <a href="#works" class="home__cta">View Works</a>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="about">
+      <div class="about__inner">
+        <div class="about__photo">
+          <img src="assets/images/profile.jpg" alt="Felix Fong" width="400" height="400">
+        </div>
+        <div class="about__bio">
+          <h2 class="section-title">About</h2>
+          <p>
+            I'm a UI/UX designer with a passion for crafting clean, purposeful digital experiences.
+            My work spans product design, interaction design, and 3D modeling — always with an eye
+            toward clarity, restraint, and the human on the other side of the screen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WORKS HIGHLIGHTS ===================== -->
+    <section id="works" class="works-highlights">
+      <div class="works-highlights__blobs" aria-hidden="true">
+        <div class="works-highlights__blob works-highlights__blob--1"></div>
+        <div class="works-highlights__blob works-highlights__blob--2"></div>
+        <div class="works-highlights__blob works-highlights__blob--3"></div>
+      </div>
+      <div class="works-highlights__inner">
+        <h2 class="section-title">Works</h2>
+
+        <ul class="project-list" role="list" data-project-list="highlights"></ul>
+
+        <a href="works.html" class="works-highlights__cta">View All Work →</a>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact__prompt">Interested in working together? Let's talk.</p>
+      <a href="mailto:hello@felixfong.com" class="contact__email">felixfongfsc@gmail.com</a>
+    </section>
+  </main>
+
+  <script src="js/data/projects.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>
