@@ -34,6 +34,7 @@ const projects = [
       { src: "../assets/images/artmax/mentoring.png", alt: "ArtMax Mentoring Page" },
       { src: "../assets/images/artmax/lesson.png", alt: "ArtMax Lesson Page" },
       { src: "../assets/images/artmax/mentor.png", alt: "ArtMax Mentor Page" },
+      { src: "../assets/images/artmax/thumb.png", alt: "ArtMax Thumbnail" },
     ],
   },
   {

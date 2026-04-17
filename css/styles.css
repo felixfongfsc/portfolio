@@ -1014,6 +1014,7 @@ button {
 /* ── Gallery tab ──────────────────────────────────────────────────────── */
 
 .cs-gallery {
+  padding: 0 var(--space-4);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
@@ -1021,8 +1022,14 @@ button {
 
 @media (min-width: 48rem) {
   .cs-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: var(--space-6);
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .cs-gallery img.landscape {
+    grid-column: span 1;
   }
 }
 
@@ -1031,11 +1038,18 @@ button {
   height: auto;
   display: block;
   cursor: zoom-in;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  border-radius: 12px;
+  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.15), 0 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cs-gallery img.landscape {
+  grid-column: span 2;
 }
 
 .cs-gallery img:hover {
   opacity: 0.88;
+  box-shadow: 0 0px 24px rgba(0, 0, 0, 0.2), 0 0px 8px rgba(0, 0, 0, 0.15);
 }
 
 .cs-gallery__placeholder {

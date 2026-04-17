@@ -157,6 +157,14 @@ function buildGallery(container, images) {
     img.loading = 'lazy';
     img.className = 'lightbox-trigger';
     img.setAttribute('data-full', src);
+    
+    // Check if image is landscape when it loads
+    img.onload = function() {
+      if (this.naturalWidth > this.naturalHeight) {
+        this.classList.add('landscape');
+      }
+    };
+    
     container.appendChild(img);
   });
 }
