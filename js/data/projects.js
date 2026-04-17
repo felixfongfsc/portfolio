@@ -24,8 +24,8 @@ const projects = [
       platform: "Mobile (iOS & Android)",
     },
     slides: [
-      { src: "../assets/images/_placeholder_16_9_A.png", alt: "ArtMax Placeholder A", caption: "ArtMax Placeholder A" },
-      { src: "../assets/images/_placeholder_16_9_B.png", alt: "ArtMax Placeholder B", caption: "ArtMax Placeholder B" },
+      { src: "../assets/images/placeholder-16-9-A.png", alt: "ArtMax Placeholder A", caption: "ArtMax Placeholder A" },
+      { src: "../assets/images/placeholder-16-9-B.png", alt: "ArtMax Placeholder B", caption: "ArtMax Placeholder B" },
     ],
     gallery: [
       { src: "../assets/images/artmax/welcome.png", alt: "ArtMax Welcome Page" },
@@ -34,7 +34,6 @@ const projects = [
       { src: "../assets/images/artmax/mentoring.png", alt: "ArtMax Mentoring Page" },
       { src: "../assets/images/artmax/lesson.png", alt: "ArtMax Lesson Page" },
       { src: "../assets/images/artmax/mentor.png", alt: "ArtMax Mentor Page" },
-      { src: "../assets/images/artmax/thumb.png", alt: "ArtMax Thumbnail" },
     ],
   },
   {
