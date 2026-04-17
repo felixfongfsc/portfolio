@@ -2,6 +2,10 @@
  * casestudy.js — Slideshow builder + tab switcher for case study pages
  */
 
+/* ── Configuration ──────────────────────────────────────────────────────── */
+
+const SLIDESHOW_AUTO_INTERVAL = 5000; // Auto-advance interval in milliseconds (5000 = 5 seconds)
+
 /* ── Slideshow builder ─────────────────────────────────────────────────── */
 
 /**
@@ -24,11 +28,24 @@ function buildSlideshow(container, slides) {
     slides.forEach(({ src, alt }) => {
       const slide = document.createElement('div');
       slide.className = 'cs-slide';
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = alt;
-      img.loading = 'lazy';
-      slide.appendChild(img);
+      
+      // Background image (blurred)
+      const bgImg = document.createElement('img');
+      bgImg.className = 'cs-slide__bg';
+      bgImg.src = src;
+      bgImg.alt = '';
+      bgImg.setAttribute('aria-hidden', 'true');
+      bgImg.loading = 'lazy';
+      
+      // Foreground image (sharp)
+      const fgImg = document.createElement('img');
+      fgImg.className = 'cs-slide__img';
+      fgImg.src = src;
+      fgImg.alt = alt;
+      fgImg.loading = 'lazy';
+      
+      slide.appendChild(bgImg);
+      slide.appendChild(fgImg);
       track.appendChild(slide);
     });
   }
@@ -84,6 +101,7 @@ function initSlideshow(container, slidesData) {
   if (!slideEls.length) return;
 
   let current = 0;
+  let autoPlayTimer = null;
   slideEls[0].setAttribute('data-active', '');
 
   function updateCaption(index) {
@@ -105,30 +123,63 @@ function initSlideshow(container, slidesData) {
     updateCaption(current);
   }
 
-  // Show caption on hover
-  container.addEventListener('mouseenter', () => updateCaption(current));
-  container.addEventListener('mouseleave', () => {
-    if (captionEl) captionEl.classList.remove('cs-slideshow__caption--visible');
-  });
+  function goToWithReset(index) {
+    goTo(index);
+    // Reset auto-play timer when manually navigating
+    resetAutoPlay();
+  }
 
-  // Make caption visible while hovering
+  // Auto-play functionality
+  function startAutoPlay() {
+    // Only auto-play if there are multiple slides
+    if (slideEls.length > 1 && !autoPlayTimer) {
+      autoPlayTimer = setInterval(() => {
+        goTo(current + 1);
+      }, SLIDESHOW_AUTO_INTERVAL);
+    }
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+  }
+
+  function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+  }
+
+  // Start auto-play on load
+  startAutoPlay();
+
+  // Pause auto-play on hover and show caption
   container.addEventListener('mouseenter', () => {
+    stopAutoPlay();
+    updateCaption(current);
     if (captionEl) captionEl.classList.add('cs-slideshow__caption--visible');
   });
+  
+  // Resume auto-play on mouse leave and hide caption
+  container.addEventListener('mouseleave', () => {
+    if (captionEl) captionEl.classList.remove('cs-slideshow__caption--visible');
+    startAutoPlay();
+  });
 
-  prev?.addEventListener('click', () => goTo(current - 1));
-  next?.addEventListener('click', () => goTo(current + 1));
+  prev?.addEventListener('click', () => goToWithReset(current - 1));
+  next?.addEventListener('click', () => goToWithReset(current + 1));
 
   container.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft')  goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goToWithReset(current - 1);
+    if (e.key === 'ArrowRight') goToWithReset(current + 1);
   });
 
   let touchStartX = 0;
   track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend',   (e) => {
     const delta = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(delta) > 40) goTo(delta > 0 ? current + 1 : current - 1);
+    if (Math.abs(delta) > 40) goToWithReset(delta > 0 ? current + 1 : current - 1);
   });
 }
 
@@ -137,7 +188,7 @@ function initSlideshow(container, slidesData) {
 /**
  * Populates the gallery tab from project data.
  * @param {HTMLElement} container  - .cs-gallery element
- * @param {Array}       images     - [{ src, alt }, ...] from projects.js
+ * @param {Array}       images     - [{ src, alt, caption?, description? }, ...] from projects.js
  */
 function buildGallery(container, images) {
   container.innerHTML = '';
@@ -150,7 +201,11 @@ function buildGallery(container, images) {
     return;
   }
 
-  images.forEach(({ src, alt }) => {
+  images.forEach(({ src, alt, caption, description }) => {
+    // Create wrapper for image + caption
+    const itemWrapper = document.createElement('div');
+    itemWrapper.className = 'cs-gallery__item';
+    
     const img = document.createElement('img');
     img.src = src;
     img.alt = alt;
@@ -158,14 +213,29 @@ function buildGallery(container, images) {
     img.className = 'lightbox-trigger';
     img.setAttribute('data-full', src);
     
+    // Add caption and description as data attributes for lightbox
+    if (caption) img.setAttribute('data-caption', caption);
+    if (description) img.setAttribute('data-description', description);
+    
     // Check if image is landscape when it loads
     img.onload = function() {
       if (this.naturalWidth > this.naturalHeight) {
         this.classList.add('landscape');
+        itemWrapper.classList.add('landscape');
       }
     };
     
-    container.appendChild(img);
+    itemWrapper.appendChild(img);
+    
+    // Add caption if provided
+    if (caption) {
+      const captionEl = document.createElement('p');
+      captionEl.className = 'cs-gallery__caption';
+      captionEl.textContent = caption;
+      itemWrapper.appendChild(captionEl);
+    }
+    
+    container.appendChild(itemWrapper);
   });
 }
 
@@ -181,6 +251,11 @@ function buildGallery(container, images) {
     : null;
 
   if (!project) return;
+
+  // ── Apply custom accent color if defined ───────────────────────────
+  if (project.accentColor) {
+    document.documentElement.style.setProperty('--color-accent', project.accentColor);
+  }
 
   // ── Populate page <title> ──────────────────────────────────────────
   document.title = project.title + ' — Felix Fong';
@@ -298,3 +373,51 @@ function initTabs(tabsContainer) {
 }
 
 document.querySelectorAll('.cs-tabs').forEach(initTabs);
+
+/* ── Back to Top Button ────────────────────────────────────────────────── */
+
+(function initBackToTop() {
+  // Only initialize on case study pages
+  if (!document.querySelector('.case-study-page')) return;
+
+  // Create the button
+  const backToTopBtn = document.createElement('button');
+  backToTopBtn.className = 'back-to-top';
+  backToTopBtn.setAttribute('aria-label', 'Back to top');
+  backToTopBtn.innerHTML = '&#8593;'; // Up arrow
+  document.body.appendChild(backToTopBtn);
+
+  // Show/hide button based on scroll position
+  const SCROLL_THRESHOLD = 400; // Show button after scrolling 400px
+
+  function toggleButtonVisibility() {
+    const scrolled = window.scrollY || document.documentElement.scrollTop;
+    if (scrolled > SCROLL_THRESHOLD) {
+      backToTopBtn.classList.add('back-to-top--visible');
+    } else {
+      backToTopBtn.classList.remove('back-to-top--visible');
+    }
+  }
+
+  // Scroll to top smoothly when clicked
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Listen to scroll events with throttling for performance
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(() => {
+      toggleButtonVisibility();
+    });
+  }, { passive: true });
+
+  // Initial check
+  toggleButtonVisibility();
+})();

@@ -30,8 +30,8 @@ function buildProjectCard(project, thumbPrefix = "") {
 /**
  * Render project cards into [data-project-list] containers.
  *
- * - data-project-list="highlights"  → all projects (used on index.html)
- * - data-project-list="UI/UX Design" → filtered by discipline (used on works.html)
+ * - data-project-list="highlights"  → all projects with highlight=true (used on index.html)
+ * - data-project-list="UI/UX Design" → filtered by discipline AND works=true (used on works.html)
  */
 (function renderProjectCards() {
   const highlightsList = document.querySelector('[data-project-list="highlights"]');
@@ -45,7 +45,7 @@ function buildProjectCard(project, thumbPrefix = "") {
     const discipline = list.dataset.projectList;
     if (discipline === "highlights") return;
     projects
-      .filter((p) => p.discipline === discipline)
+      .filter((p) => p.discipline === discipline && (p.works !== false)) // Default to true if not specified
       .forEach((p) => list.appendChild(buildProjectCard(p)));
   });
 })();

@@ -159,16 +159,6 @@ button {
   color: var(--color-accent);
 }
 
-.nav__link--active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-accent);
-}
-
 /* Hamburger toggle — hidden on desktop */
 .nav__toggle {
   display: none;
@@ -212,7 +202,6 @@ button {
   }
 
   .nav__links {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -222,11 +211,17 @@ button {
     gap: 0;
     background-color: var(--color-bg);
     border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
-    padding: var(--space-4) clamp(1rem, 5vw, 4rem);
+    padding: 0 clamp(1rem, 5vw, 4rem);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.1s ease, opacity 0.1s ease, padding 0.1s ease;
   }
 
   .nav__links.nav__links--open {
-    display: flex;
+    max-height: 20rem;
+    opacity: 1;
+    padding: var(--space-4) clamp(1rem, 5vw, 4rem);
   }
 
   .nav__link {
@@ -538,7 +533,7 @@ button {
 .project-card__thumb {
   overflow: hidden;
   background-color: color-mix(in srgb, var(--color-ink) 5%, transparent);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 
 .project-card__thumb img {
@@ -768,7 +763,7 @@ button {
   /* 16:9 but capped so it doesn't dwarf the overview panel */
   width: min(100%, 36rem);
   aspect-ratio: 16 / 9;
-  border-radius: 2px;
+  border-radius: 8px;
 }
 
 .cs-slideshow__track {
@@ -782,13 +777,29 @@ button {
   flex: 0 0 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
-.cs-slide img {
+/* Blurred background layer */
+.cs-slide__bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: blur(40px);
+  transform: scale(1.1); /* Slightly enlarge to hide blur edges */
+  opacity: 0.6;
+}
+
+/* Sharp foreground image */
+.cs-slide__img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
+  z-index: 1;
 }
 
 /* Placeholder slide — shown until real images are added */
@@ -1016,7 +1027,7 @@ button {
 .cs-gallery {
   padding: 0 var(--space-4);
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
 }
 
@@ -1027,10 +1038,14 @@ button {
   }
 }
 
-@media (max-width: 47.9375rem) {
-  .cs-gallery img.landscape {
-    grid-column: span 1;
-  }
+.cs-gallery__item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Landscape items span 2 columns on all screen sizes */
+.cs-gallery__item.landscape {
+  grid-column: span 2;
 }
 
 .cs-gallery img {
@@ -1040,16 +1055,23 @@ button {
   cursor: zoom-in;
   transition: opacity 0.2s ease, transform 0.2s ease;
   border-radius: 12px;
-  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.15), 0 0px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cs-gallery img.landscape {
-  grid-column: span 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--space-2);
 }
 
 .cs-gallery img:hover {
   opacity: 0.88;
-  box-shadow: 0 0px 24px rgba(0, 0, 0, 0.2), 0 0px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cs-gallery__caption {
+  font-size: var(--text-sm);
+  color: color-mix(in srgb, var(--color-ink) 60%, transparent);
+  margin: 0;
+  padding: 0 var(--space-1);
+  line-height: 1.4;
+  text-align: center;
 }
 
 .cs-gallery__placeholder {
@@ -1180,4 +1202,607 @@ button {
   font-size: var(--text-xs);
   color: color-mix(in srgb, var(--color-ink) 30%, transparent);
   letter-spacing: 0.04em;
+}
+
+/* ── Workflow step components for process tab ────────────────────────── */
+
+.workflow-step {
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-8);
+}
+
+.workflow-step:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Two-column layouts: photo + text */
+.workflow-step--left-photo,
+.workflow-step--right-photo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 48rem) {
+  .workflow-step--left-photo,
+  .workflow-step--right-photo {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+}
+
+/* Photo positioning for right-photo variant */
+@media (min-width: 48rem) {
+  .workflow-step--right-photo .workflow-step__photo {
+    order: 1;
+  }
+  
+  .workflow-step--right-photo .workflow-step__content {
+    order: 0;
+  }
+}
+
+/* Text-only layout */
+.workflow-step--text-only {
+  max-width: 68ch;
+}
+
+/* Centered photo layout */
+.workflow-step--photo-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+.workflow-step--photo-center .workflow-step__photo {
+  max-width: 24rem;
+}
+
+/* Multiple images in centered layout */
+.workflow-step--photo-center .workflow-step__photo--multiple {
+  max-width: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  .workflow-step--photo-center .workflow-step__photo--multiple {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    max-width: 56rem;
+  }
+}
+
+.workflow-step--photo-center .workflow-step__content {
+  max-width: 52ch;
+}
+
+/* Photo styling */
+.workflow-step__photo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0 var(--space-6);
+}
+
+/* Multiple images in a photo container */
+.workflow-step__photo--multiple {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  .workflow-step__photo--multiple {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+}
+
+.workflow-step__photo--multiple .workflow-step__photo-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .workflow-step--left-photo .workflow-step__photo,
+  .workflow-step--right-photo .workflow-step__photo {
+    align-items: center;
+  }
+}
+
+.workflow-step__photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+@media (min-width: 48rem) {
+  .workflow-step--left-photo .workflow-step__photo img,
+  .workflow-step--right-photo .workflow-step__photo img {
+    max-height: 24rem;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  /* Multiple images should fill their grid cells */
+  .workflow-step__photo--multiple img {
+    width: 100%;
+    max-height: none;
+  }
+}
+
+.workflow-step__photo img:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Full-height photo variant */
+.workflow-step__photo--full-height img {
+  max-height: none !important;
+  width: 100% !important;
+}
+
+@media (min-width: 48rem) {
+  .workflow-step--left-photo:has(.workflow-step__photo--full-height),
+  .workflow-step--right-photo:has(.workflow-step__photo--full-height) {
+    align-items: start;
+  }
+}
+
+.workflow-step__photo-caption {
+  font-size: var(--text-xs);
+  color: color-mix(in srgb, var(--color-ink) 50%, transparent);
+  line-height: 1.4;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Content styling */
+.workflow-step__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.workflow-step__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.workflow-step__text {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-ink) 75%, transparent);
+  margin: 0;
+}
+
+.workflow-step__text + .workflow-step__text {
+  margin-top: var(--space-4);
+}
+
+/* List styling within workflow steps */
+.workflow-step__content ul,
+.workflow-step__content ol {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-6);
+}
+
+.workflow-step__content li {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-ink) 75%, transparent);
+  margin-bottom: var(--space-2);
+}
+
+.workflow-step__content li:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+/* Close button — minimalist X */
+.lightbox__close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: white;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  z-index: 10002;
+  transition: opacity 0.2s ease;
+  opacity: 0.5;
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus {
+  opacity: 1;
+  outline: none;
+}
+
+/* Content wrapper */
+.lightbox__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--space-16) var(--space-6) 10rem; /* Bottom padding reserves space for description + thumbnails */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Header: caption + counter */
+.lightbox__header {
+  width: 100%;
+  max-width: 72rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  min-height: 2rem;
+  flex-shrink: 0;
+}
+
+.lightbox__caption {
+  font-family: var(--font-name);
+  font-size: var(--text-lg);
+  color: white;
+  line-height: 1.4;
+  flex: 1;
+  display: none;
+}
+
+.lightbox__counter {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Main image area */
+.lightbox__main {
+  position: relative;
+  width: 100%;
+  max-width: 72rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+/* Navigation arrows — minimal lines */
+.lightbox__arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: white;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  z-index: 10002;
+  transition: opacity 0.2s ease;
+  opacity: 0.3;
+  flex-shrink: 0;
+}
+
+.lightbox__arrow:hover,
+.lightbox__arrow:focus {
+  opacity: 1;
+  outline: none;
+}
+
+.lightbox__arrow:disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
+}
+
+.lightbox__arrow--prev {
+  left: var(--space-6);
+}
+
+.lightbox__arrow--next {
+  right: var(--space-6);
+}
+
+/* Figure */
+.lightbox__figure {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  max-height: 100%;
+  max-width: 100%;
+  min-height: 0;
+}
+
+.lightbox__img {
+  max-width: 56rem;
+  /* Desktop max-height calculation:
+     100vh - 24rem = viewport height minus:
+     - Header (caption + counter): ~4rem
+     - Top padding: 4rem (var(--space-16))
+     - Bottom padding: 2rem (reserved for description + thumbnails)
+     - Extra spacing buffer: ~6rem
+     Total: 24rem reserved, image gets the rest */
+  max-height: calc(100vh - 16rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Description — fixed above thumbnail bar */
+.lightbox__description {
+  position: fixed;
+  bottom: calc(var(--space-6) + 5rem); /* Positioned above thumbnails: space-6 + thumbnail height (~5rem) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 56rem;
+  padding: 0 var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  text-align: center;
+  display: none;
+  z-index: 10001;
+}
+
+/* Thumbnails — minimal dots */
+.lightbox__thumbnails {
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 72rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 10001;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-shrink: 0;
+}
+
+.lightbox__thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.lightbox__thumbnails-track {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  padding: var(--space-2) 0;
+}
+
+.lightbox__thumbnail {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  background: none;
+  opacity: 0.3;
+}
+
+.lightbox__thumbnail:hover,
+.lightbox__thumbnail:focus {
+  opacity: 0.6;
+  outline: none;
+}
+
+.lightbox__thumbnail--active {
+  opacity: 1;
+  border-color: white;
+}
+
+.lightbox__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 47.99rem) {
+  .lightbox__close {
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--text-xl);
+  }
+  
+  .lightbox__content {
+    padding: var(--space-12) var(--space-4) 8rem; /* Mobile: smaller padding, 8rem bottom for description + thumbnails */
+  }
+  
+  .lightbox__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+  
+  .lightbox__caption {
+    font-size: var(--text-base);
+  }
+  
+  .lightbox__counter {
+    font-size: var(--text-xs);
+  }
+  
+  .lightbox__main {
+    gap: var(--space-4);
+    margin-bottom: 0;
+  }
+  
+  .lightbox__arrow {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--text-xl);
+  }
+  
+  .lightbox__arrow--prev {
+    left: var(--space-4);
+  }
+  
+  .lightbox__arrow--next {
+    right: var(--space-4);
+  }
+  
+  .lightbox__img {
+    max-width: 100%;
+    /* Mobile max-height calculation:
+       100vh - 18rem = viewport height minus:
+       - Header (caption + counter): ~3rem
+       - Top padding: 3rem (var(--space-12))
+       - Bottom padding: 8rem (reserved for description + thumbnails)
+       - Extra spacing buffer: ~4rem
+       Total: 18rem reserved, image gets the rest */
+    max-height: calc(100vh - 18rem);
+  }
+  
+  .lightbox__description {
+    bottom: calc(var(--space-4) + 4rem); /* Mobile: positioned above thumbnails: space-4 + thumbnail height (~4rem) */
+    max-width: calc(100% - 2rem);
+    padding: 0 var(--space-4);
+    font-size: var(--text-xs);
+  }
+  
+  .lightbox__thumbnails {
+    bottom: var(--space-4);
+  }
+  
+  .lightbox__thumbnails-track {
+    gap: var(--space-2);
+    justify-content: flex-start;
+  }
+  
+  .lightbox__thumbnail {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Desktop: hide arrows initially, show on lightbox hover */
+@media (min-width: 48rem) {
+  .lightbox:not(:hover) .lightbox__arrow {
+    opacity: 0;
+  }
+  
+  .lightbox:hover .lightbox__arrow {
+    opacity: 0.3;
+  }
+  
+  .lightbox__arrow:hover,
+  .lightbox__arrow:focus {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Back to Top Button (Case Study Pages)
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: color-mix(in srgb, var(--color-accent) 85%, var(--color-ink));
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 47.99rem) {
+  .back-to-top {
+    bottom: var(--space-6);
+    right: var(--space-6);
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: var(--text-base);
+  }
 }

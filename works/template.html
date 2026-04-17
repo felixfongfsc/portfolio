@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Case Study — Felix Fong</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header class="site-header"></header>
+
+  <main class="case-study-page">
+    <article class="case-study">
+
+      <!-- ===================== TITLE — populated by casestudy.js ===================== -->
+      <header class="cs-header">
+        <div class="cs-header__inner">
+          <p class="cs-header__discipline"></p>
+          <h1 class="cs-title"></h1>
+          <p class="cs-header__caption"></p>
+        </div>
+      </header>
+
+      <!-- ===================== HERO: SLIDESHOW + OVERVIEW ===================== -->
+      <div class="cs-hero">
+        <div class="cs-hero__inner">
+
+          <!-- Left: slideshow — built by casestudy.js -->
+          <div class="cs-slideshow" aria-label="Project images"></div>
+
+          <!-- Right: overview panel — meta-grid populated by casestudy.js -->
+          <aside class="cs-overview" aria-labelledby="cs-overview-heading">
+            <h2 id="cs-overview-heading" class="cs-overview__title">Project Overview</h2>
+            <dl class="meta-grid"></dl>
+          </aside>
+
+        </div><!-- /.cs-hero__inner -->
+      </div><!-- /.cs-hero -->
+
+      <!-- ===================== TABS ===================== -->
+      <div class="cs-tabs">
+        <div class="cs-tabs__bar" role="tablist" aria-label="Case study sections">
+          <button class="cs-tabs__tab cs-tabs__tab--active" role="tab" aria-selected="true"  aria-controls="tab-gallery" id="btn-gallery">Gallery</button>
+          <button class="cs-tabs__tab"                      role="tab" aria-selected="false" aria-controls="tab-process" id="btn-process">Process</button>
+        </div>
+
+        <!-- GALLERY TAB — populated by casestudy.js -->
+        <div class="cs-tabs__panel" id="tab-gallery" role="tabpanel" aria-labelledby="btn-gallery">
+          <div class="cs-gallery"></div>
+        </div>
+
+        <!-- PROCESS TAB -->
+        <div class="cs-tabs__panel cs-tabs__panel--hidden" id="tab-process" role="tabpanel" aria-labelledby="btn-process">
+
+          <!-- The Problem -->
+          <section class="cs-section cs-problem" aria-labelledby="cs-problem-heading">
+            <h2 id="cs-problem-heading" class="cs-section-title">The Problem</h2>
+            
+            <!-- Text-only workflow step -->
+            <div class="workflow-step workflow-step--text-only">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Text-Only Layout Example</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--text-only</code>
+                </p>
+                <p class="workflow-step__text">
+                  This layout is for text-only content without images. It has a max-width of 68ch for 
+                  optimal readability. Use this when you want to present narrative content, problem 
+                  statements, or conclusions without accompanying visuals.
+                </p>
+              </div>
+            </div>
+
+            <!-- Photo left, text right -->
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo workflow-step__photo--full-height">
+                <img src="../assets/images/placeholder/placeholder-A4-A.png" alt="Problem analysis wireframe">
+                <p class="workflow-step__photo-caption">Photo with full height enabled</p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Photo Left, Text Right (Full Height)</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> + <code>.workflow-step__photo--full-height</code>
+                </p>
+                <p class="workflow-step__text">
+                  This layout places the photo on the left and text on the right. The <code>--full-height</code> 
+                  modifier allows the photo to display at its natural height without being constrained to match 
+                  the text box height. Perfect for tall images like portraits or A4 documents.
+                </p>
+              </div>
+            </div>
+
+            <blockquote class="evidence-callout">
+              <p>"This template demonstrates all workflow step layout options with clear examples of 
+              each CSS class and its intended use case."</p>
+              <cite>— Template Documentation</cite>
+            </blockquote>
+          </section>
+
+          <!-- Ideation -->
+          <section class="cs-section cs-ideation" aria-labelledby="cs-ideation-heading">
+            <h2 id="cs-ideation-heading" class="cs-section-title">Design Process &amp; Ideation</h2>
+            
+            <!-- Text left, photo right -->
+            <div class="workflow-step workflow-step--right-photo">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Text Left, Photo Right (Height Constrained)</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--right-photo</code> (without <code>--full-height</code>)
+                </p>
+                <p class="workflow-step__text">
+                  This layout places text on the left and photo on the right. Without the <code>--full-height</code> 
+                  modifier, the photo is constrained to a max-height of 24rem and maintains its aspect ratio. 
+                  The photo will shrink proportionally if it's taller than the constraint.
+                </p>
+                <ul>
+                  <li><strong>Default behavior:</strong> Photo height limited to 24rem</li>
+                  <li><strong>Aspect ratio:</strong> Always maintained with <code>width: auto</code></li>
+                  <li><strong>Shadow:</strong> Applied to actual image, not container box</li>
+                </ul>
+              </div>
+              <div class="workflow-step__photo">
+                <img src="../assets/images/placeholder/placeholder-16-9-A.png" alt="Design sketches and wireframes">
+                <p class="workflow-step__photo-caption">Photo with height constraint (24rem max)</p>
+              </div>
+            </div>
+
+            <!-- Centered photo layout with multiple images -->
+            <div class="workflow-step workflow-step--photo-center">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Centered Layout with Multiple Images</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--photo-center</code> + <code>.workflow-step__photo--multiple</code>
+                </p>
+              </div>
+              <div class="workflow-step__photo workflow-step__photo--multiple">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-16-9-B.png" alt="Mobile prototype">
+                  <p class="workflow-step__photo-caption">Image 1</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-16-9-A.png" alt="Tablet prototype">
+                  <p class="workflow-step__photo-caption">Image 2</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-16-9-B.png" alt="Desktop prototype">
+                  <p class="workflow-step__photo-caption">Image 3</p>
+                </div>
+              </div>
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  This layout centers everything on the page with text above and below the images. 
+                  The <code>--multiple</code> modifier arranges images horizontally in a grid (auto-fit, min 14rem per image). 
+                  On mobile, images stack vertically. Perfect for showing multiple views or iterations side by side.
+                </p>
+              </div>
+            </div>
+
+            <!-- Multiple images example -->
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo workflow-step__photo--multiple">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder.png" alt="Iteration 1">
+                  <p class="workflow-step__photo-caption">Iteration 1</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder.png" alt="Iteration 2">
+                  <p class="workflow-step__photo-caption">Iteration 2</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder.png" alt="Final iteration">
+                  <p class="workflow-step__photo-caption">Iteration 3</p>
+                </div>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Photo Left with Multiple Images</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> + <code>.workflow-step__photo--multiple</code>
+                </p>
+                <p class="workflow-step__text">
+                  This combines the left-photo layout with multiple images. Images are arranged in a grid 
+                  (auto-fit, min 12rem per image) on the left side, with text content on the right. 
+                  Great for showing design iterations, variations, or comparative views while maintaining 
+                  the two-column layout structure.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- The Work -->
+          <section class="cs-section cs-work" aria-labelledby="cs-work-heading">
+            <h2 id="cs-work-heading" class="cs-section-title">Final Implementation</h2>
+            
+            <!-- Photo left, text right -->
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/placeholder/placeholder-A4-B.png" alt="Final design system">
+                <p class="workflow-step__photo-caption">Single photo with height constraint</p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Photo Left, Text Right (Standard)</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> (without modifiers)
+                </p>
+                <p class="workflow-step__text">
+                  This is the standard left-photo layout without the <code>--full-height</code> modifier. 
+                  The photo is constrained to 24rem max-height and centered vertically with the text content. 
+                  The image maintains its aspect ratio and the shadow follows the actual image shape.
+                </p>
+                <ul>
+                  <li><strong>Layout:</strong> Two-column grid (1fr 1fr) on desktop, single column on mobile</li>
+                  <li><strong>Alignment:</strong> Photo and text are vertically centered</li>
+                  <li><strong>Spacing:</strong> 12rem gap between columns on desktop</li>
+                  <li><strong>Responsive:</strong> Collapses to single column below 768px</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Text-only conclusion -->
+            <div class="workflow-step workflow-step--text-only">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Summary of Available Classes</h3>
+                <p class="workflow-step__text">
+                  <strong>Layout Options:</strong>
+                </p>
+                <ul>
+                  <li><code>.workflow-step--text-only</code> - Text-only content, max-width 68ch</li>
+                  <li><code>.workflow-step--left-photo</code> - Photo left, text right, two-column grid</li>
+                  <li><code>.workflow-step--right-photo</code> - Text left, photo right, two-column grid</li>
+                  <li><code>.workflow-step--photo-center</code> - Centered layout with text above/below photo</li>
+                </ul>
+                <p class="workflow-step__text">
+                  <strong>Modifiers:</strong>
+                </p>
+                <ul>
+                  <li><code>.workflow-step__photo--full-height</code> - Remove height constraint, show photo at natural size</li>
+                  <li><code>.workflow-step__photo--multiple</code> - Display multiple images in a grid layout</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /#tab-process -->
+      </div><!-- /.cs-tabs -->
+
+    </article>
+  </main>
+
+  <script src="../js/data/projects.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/lightbox.js"></script>
+  <script src="../js/casestudy.js"></script>
+</body>
+</html>
