@@ -8,7 +8,21 @@
 </head>
 <body>
 
-  <header class="site-header"></header>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav__logo" href="../index.html">Felix Fong</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span>
+        <span class="nav__hamburger" aria-hidden="true"></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a class="nav__link" href="../index.html#home">Home</a></li>
+        <li><a class="nav__link" href="../index.html#about">About</a></li>
+        <li><a class="nav__link nav__link--active" href="../index.html#works">Works</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="case-study-page">
     <article class="case-study">
@@ -56,21 +70,71 @@
           <!-- The Problem -->
           <section class="cs-section cs-problem" aria-labelledby="cs-problem-heading">
             <h2 id="cs-problem-heading" class="cs-section-title">The Problem</h2>
-            TEMP
+            
+            <div class="workflow-step-row">
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Fragmented Artist Communities</h3>
+                  <p class="workflow-step__text">
+                    For many artists, especially beginners, existing social media platforms are frustrating. Sites like Instagram, Threads, or X are cluttered with noise from people who are not artists. On art focused sites like Pixiv or DeviantArt, constantly seeing extremely talented work can feel discouraging instead of inspiring; a newbie may feel intimidated and hesitate to share their own art. Meanwhile, other platforms are often too niche, focusing on only one type of art (for example, only anime or only realism), leaving no room to explore different styles.
+                  </p>
+                </div>
+              </div>
+
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Scattered Learning Resources</h3>
+                  <p class="workflow-step__text">
+                    Another issue is that art tutorials and tips are scattered across dozens of sites. YouTube, blogs, Discord servers, there is no clear starting point or logical sequence of lessons. This chaos leaves beginners without structured mentorship opportunities. They miss out on step by step guidance and peer feedback that would truly help them grow.
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
 
           <!-- Ideation -->
           <section class="cs-section cs-ideation" aria-labelledby="cs-ideation-heading">
             <h2 id="cs-ideation-heading" class="cs-section-title">Ideation &amp; Exploration</h2>
-            TEMP
+            
+            <div class="workflow-step workflow-step--text-only">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">HEADING HERE</h3>
+                <p class="workflow-step__text">
+                  CONTENT HERE
+                </p>
+              </div>
+            </div>
             <!-- image-grid goes here when ideation images are available -->
           </section>
 
           <!-- The Work -->
           <section class="cs-section cs-work" aria-labelledby="cs-work-heading">
-            <h2 id="cs-work-heading" class="cs-section-title">The Work</h2>
-            TEMP
-            <!-- image-grid--work goes here when final images are available -->
+            <h2 id="cs-work-heading" class="cs-section-title">Final Implementation</h2>
+            
+            <!-- Photo left, text right -->
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/placeholder/placeholder-A4-B.png" alt="Final design system">
+                <p class="workflow-step__photo-caption">Single photo with height constraint</p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Photo Left, Text Right (Standard)</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> (without modifiers)
+                </p>
+                <p class="workflow-step__text">
+                  This is the standard left-photo layout without the <code>--full-height</code> modifier. 
+                  The photo is constrained to 24rem max-height and centered vertically with the text content. 
+                  The image maintains its aspect ratio and the shadow follows the actual image shape.
+                </p>
+                <ul>
+                  <li><strong>Layout:</strong> Two-column grid (1fr 1fr) on desktop, single column on mobile</li>
+                  <li><strong>Alignment:</strong> Photo and text are vertically centered</li>
+                  <li><strong>Spacing:</strong> 12rem gap between columns on desktop</li>
+                  <li><strong>Responsive:</strong> Collapses to single column below 768px</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
         </div><!-- /#tab-process -->

@@ -62,7 +62,7 @@ const projects = [
     accentColor: "#9563F9",
     overview: {
       role:     "Lead UI/UX Designer",
-      timeline: "3 months",
+      timeline: "3 weeks",
       teamSize: "1",
       platform: "Mobile (iOS & Android)",
     },

@@ -328,7 +328,11 @@ function initTabs(tabsContainer) {
   viewport.appendChild(track);
   tabsContainer.appendChild(viewport);
 
-  let currentIndex = 0;
+  // ── Restore tab state from sessionStorage ────────────────────────────
+  const pageId = location.pathname.split('/').pop().replace('.html', '');
+  const storageKey = `cs-tab-${pageId}`;
+  const savedTabIndex = sessionStorage.getItem(storageKey);
+  let currentIndex = savedTabIndex !== null ? parseInt(savedTabIndex, 10) : 0;
 
   function moveIndicator(tab) {
     indicator.style.left  = tab.offsetLeft + 'px';
@@ -355,6 +359,9 @@ function initTabs(tabsContainer) {
     });
 
     currentIndex = index;
+    
+    // Save current tab to sessionStorage
+    sessionStorage.setItem(storageKey, String(index));
   }
 
   tabs.forEach((tab, i) => {
@@ -363,7 +370,7 @@ function initTabs(tabsContainer) {
 
   // Init — position indicator on the active tab without animation
   indicator.style.transition = 'none';
-  moveIndicator(tabs[currentIndex]);
+  switchTo(currentIndex); // Use switchTo to properly initialize the saved tab
   // Re-enable transition after first paint
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -373,6 +380,21 @@ function initTabs(tabsContainer) {
 }
 
 document.querySelectorAll('.cs-tabs').forEach(initTabs);
+
+/* ── Clear tab state when navigating away ──────────────────────────────── */
+
+(function initTabStateClear() {
+  // Clear tab state when clicking navigation links (going to other pages)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (link && link.href && !link.href.includes(location.pathname)) {
+      // User is navigating away from current page
+      const pageId = location.pathname.split('/').pop().replace('.html', '');
+      const storageKey = `cs-tab-${pageId}`;
+      sessionStorage.removeItem(storageKey);
+    }
+  });
+})();
 
 /* ── Back to Top Button ────────────────────────────────────────────────── */
 
