@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArtMax — Felix Fong</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
 
   <header class="site-header"></header>
@@ -41,8 +43,10 @@
       <!-- ===================== TABS ===================== -->
       <div class="cs-tabs">
         <div class="cs-tabs__bar" role="tablist" aria-label="Case study sections">
-          <button class="cs-tabs__tab cs-tabs__tab--active" role="tab" aria-selected="true"  aria-controls="tab-gallery" id="btn-gallery">Gallery</button>
-          <button class="cs-tabs__tab"                      role="tab" aria-selected="false" aria-controls="tab-process" id="btn-process">Process</button>
+          <button class="cs-tabs__tab cs-tabs__tab--active" role="tab" aria-selected="true" aria-controls="tab-gallery"
+            id="btn-gallery">Gallery</button>
+          <button class="cs-tabs__tab" role="tab" aria-selected="false" aria-controls="tab-process"
+            id="btn-process">Process</button>
         </div>
 
         <!-- GALLERY TAB — populated by casestudy.js -->
@@ -51,18 +55,25 @@
         </div>
 
         <!-- PROCESS TAB -->
-        <div class="cs-tabs__panel cs-tabs__panel--hidden" id="tab-process" role="tabpanel" aria-labelledby="btn-process">
+        <div class="cs-tabs__panel cs-tabs__panel--hidden" id="tab-process" role="tabpanel"
+          aria-labelledby="btn-process">
 
           <!-- The Problem -->
           <section class="cs-section cs-problem" aria-labelledby="cs-problem-heading">
             <h2 id="cs-problem-heading" class="cs-section-title">The Problem</h2>
-            
+
             <div class="workflow-step-row">
               <div class="workflow-step workflow-step--text-only">
                 <div class="workflow-step__content">
                   <h3 class="workflow-step__title">Fragmented Artist Communities</h3>
                   <p class="workflow-step__text">
-                    For many artists, especially beginners, existing social media platforms are frustrating. Sites like Instagram, Threads, or X are cluttered with noise from people who are not artists. On art focused sites like Pixiv or DeviantArt, constantly seeing extremely talented work can feel discouraging instead of inspiring; a newbie may feel intimidated and hesitate to share their own art. Meanwhile, other platforms are often too niche, focusing on only one type of art (for example, only anime or only realism), leaving no room to explore different styles.
+                    For many artists, especially beginners, existing social media platforms are frustrating. Sites like
+                    Instagram, Threads, or X are cluttered with noise from people who are not artists. On art focused
+                    sites like Pixiv or DeviantArt, constantly seeing extremely talented work can feel discouraging
+                    instead of inspiring; a newcomer may feel intimidated and hesitate to share their own art.
+                    Meanwhile,
+                    other platforms are often too niche, focusing on only one type of art (for example, only anime or
+                    only realism), leaving no room to explore different styles.
                   </p>
                 </div>
               </div>
@@ -71,55 +82,139 @@
                 <div class="workflow-step__content">
                   <h3 class="workflow-step__title">Scattered Learning Resources</h3>
                   <p class="workflow-step__text">
-                    Another issue is that art tutorials and tips are scattered across dozens of sites. YouTube, blogs, Discord servers, there is no clear starting point or logical sequence of lessons. This chaos leaves beginners without structured mentorship opportunities. They miss out on step by step guidance and peer feedback that would truly help them grow.
+                    Another issue is that art tutorials and tips are scattered across dozens of sites. YouTube, blogs,
+                    Discord servers, there is no clear starting point or logical sequence of lessons. This chaos leaves
+                    beginners without structured mentorship opportunities. They miss out on step-by-step guidance and
+                    peer feedback that would truly help them grow.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- Ideation -->
+          <!-- Research & Discovery -->
           <section class="cs-section cs-ideation" aria-labelledby="cs-ideation-heading">
-            <h2 id="cs-ideation-heading" class="cs-section-title">Ideation &amp; Exploration</h2>
-            
-            <div class="workflow-step workflow-step--text-only">
+            <h2 id="cs-ideation-heading" class="cs-section-title">Research &amp; Discovery</h2>
+
+
+            <div class="workflow-step workflow-step--right-photo">
+
+              <div class="workflow-step__photo workflow-step__photo--two-vertical">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/user_research_problem.png"
+                    alt="A list of bullet points from user research. It reads: “Tips & tricks videos online, no matter useful or not. Beginner artists struggle with current tech. Seeing others stuck in bottleneck, willing to give a hand. Witness misleading technique.”">
+                  <p class="workflow-step__photo-caption">Artists struggle with chaotic tutorials, misleading
+                    techniques, and no way to help peers.</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/user_research_people.png"
+                    alt="A collection of user quotes. From beginners: “How you draw so good” with a crying emoji, and “Please teach xoxo”. From a hater: “Teaching others with this level of skills?” From a growing artist: “I just got commissioned! I couldn’t have done it without the support and tips from you. You helped me!”">
+                  <p class="workflow-step__photo-caption">Beginners beg for lessons, haters doubt skills, and growing
+                    artists credit mentorship for success.</p>
+                </div>
+              </div>
+
               <div class="workflow-step__content">
-                <h3 class="workflow-step__title">HEADING HERE</h3>
-                <p class="workflow-step__text">
-                  CONTENT HERE
+                <h3 class="workflow-step__title">User research</h3>
+                <p class="workflow-step__text">For user researching, I spoke with artists at different skill levels.
+                  From beginners who had never used digital tools to seasoned illustrators looking to mentor. Each
+                  person revealed unique pain points and hopes.
+                </p>
+                <p class="workflow-step__text">Beginners struggle with chaotic tutorials and misleading techniques,
+                  while experienced artists want to
+                  help but lack structure. Quotes ranged from “Please teach me” to haters doubting skills, yet one
+                  growing artist credited mentorship for landing a commission, proving the need for a simple,
+                  mentor‑friendly platform.
                 </p>
               </div>
             </div>
-            <!-- image-grid goes here when ideation images are available -->
+
+
+            <div class="workflow-step workflow-step--text-only">
+
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Target Audience</h3>
+
+                <p class="workflow-step__text">
+                  ArtMax serves three types of users. First, <b>beginner artists</b> who feel lost among talented
+                  creators on sites like Pixiv or DeviantArt and lack a clear path to improve. Second,
+                  <b>tech-illiterate artists</b> who find mainstream social media overwhelming and need a simple,
+                  minimalistic
+                  interface. Third, <b>experienced artists</b> who want to become mentors, who have skills to share (in
+                  Procreate, Photoshop, Figma, etc.) and are looking for a structured way to teach and connect with
+                  learners.
+                </p>
+              </div>
+
+            </div>
           </section>
 
-          <!-- The Work -->
+          <!-- Ideation -->
           <section class="cs-section cs-work" aria-labelledby="cs-work-heading">
-            <h2 id="cs-work-heading" class="cs-section-title">Final Implementation</h2>
-            
-            <!-- Photo left, text right -->
-            <div class="workflow-step workflow-step--left-photo">
+            <h2 id="cs-work-heading" class="cs-section-title">Ideation &amp; Exploration</h2>
+
+            <div class="workflow-step workflow-step--right-photo workflow-step--photo-small">
               <div class="workflow-step__photo">
-                <img src="../assets/images/placeholder/placeholder-A4-B.png" alt="Final design system">
-                <p class="workflow-step__photo-caption">Single photo with height constraint</p>
+                <img src="../assets/images/artmax/brainstorm_memo.png" alt="Brainstorm idea on memo papers.">
+                <p class="workflow-step__photo-caption">Brainstorming idea of features in ArtMax on memo papers</p>
               </div>
               <div class="workflow-step__content">
-                <h3 class="workflow-step__title">Photo Left, Text Right (Standard)</h3>
-                <p class="workflow-step__text">
-                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> (without modifiers)
+                <h3 class="workflow-step__title">Brainstorming</h3>
+                <p class="workflow-step__text">Based on our user research, we knew beginners felt lost among chaotic
+                  tutorials and misleading techniques, while experienced artists wanted to help but had no structured
+                  way. So we gathered around memo papers and asked: “What would a truly helpful art platform look like?”
                 </p>
-                <p class="workflow-step__text">
-                  This is the standard left-photo layout without the <code>--full-height</code> modifier. 
-                  The photo is constrained to 24rem max-height and centered vertically with the text content. 
-                  The image maintains its aspect ratio and the shadow follows the actual image shape.
+                <p class="workflow-step__text">We wrote down every idea: a simple art feed, event listings, direct
+                  messaging, and most importantly,
+                  a mentorship feature where learners could find lessons and mentors could offer guidance. The messy
+                  pile of sticky notes slowly turned into the core features of ArtMax.
                 </p>
-                <ul>
-                  <li><strong>Layout:</strong> Two-column grid (1fr 1fr) on desktop, single column on mobile</li>
-                  <li><strong>Alignment:</strong> Photo and text are vertically centered</li>
-                  <li><strong>Spacing:</strong> 12rem gap between columns on desktop</li>
-                  <li><strong>Responsive:</strong> Collapses to single column below 768px</li>
-                </ul>
               </div>
+            </div>
+            <div class="workflow-step workflow-step--left-photo ">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/artmax/lowfi.png" alt="Brainstorm idea on memo papers.">
+                <p class="workflow-step__photo-caption">Low‑fidelity sketch of ArtMax’s core screens and navigation.</p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Low‑fidelity wireframes</h3>
+                <p class="workflow-step__text">
+                  Before opening Figma, I sketched rough wireframes on GoodNotes. This helped me think about layout and
+                  user flow without getting distracted by colors or fonts. I mapped out the main pages: a home feed for
+                  discovering art, a search screen to find artists or events, and a dedicated mentorship section. For
+                  the mentor page, I included a mentor’s portfolio, student comments, and a clear way to contact
+                  them. I also sketched a sidebar navigation to keep the interface clean for tech‑illiterate users.
+                </p>
+                <p class="workflow-step__text">
+                  Next to the wireframes, I listed all the information a course page would need – title and tags, mentor
+                  details, thumbnail, brief description, learning objectives, key points, a Q&amp;A section, and a price
+                  or purchase option. This checklist kept me focused on what content each screen had to support before
+                  moving to high‑fidelity design.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- High-Fidelity Design -->
+          <section class="cs-section cs-highfi" aria-labelledby="cs-highfi-heading">
+            <h2 id="cs-highfi-heading" class="cs-section-title">High‑Fidelity Design</h2>
+
+            <div class="workflow-step workflow-step--text-only">
+
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Target Audience</h3>
+
+                <p class="workflow-step__text">
+                  ArtMax serves three types of users. First, <b>beginner artists</b> who feel lost among talented
+                  creators on sites like Pixiv or DeviantArt and lack a clear path to improve. Second,
+                  <b>tech-illiterate artists</b> who find mainstream social media overwhelming and need a simple,
+                  minimalistic
+                  interface. Third, <b>experienced artists</b> who want to become mentors, who have skills to share (in
+                  Procreate, Photoshop, Figma, etc.) and are looking for a structured way to teach and connect with
+                  learners.
+                </p>
+              </div>
+
             </div>
           </section>
 
@@ -134,4 +229,5 @@
   <script src="../js/lightbox.js"></script>
   <script src="../js/casestudy.js"></script>
 </body>
+
 </html>

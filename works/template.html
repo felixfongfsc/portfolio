@@ -72,6 +72,38 @@
               </div>
             </div>
 
+            <!-- Row layout for multiple workflow steps side by side -->
+            <div class="workflow-step-row ">
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Side-by-Side Layout (Left)</h3>
+                  <p class="workflow-step__text">
+                    <strong>Classes used:</strong> <code>.workflow-step-row</code> containing multiple <code>.workflow-step--text-only</code>
+                  </p>
+                  <p class="workflow-step__text">
+                    The workflow-step-row class creates a grid layout that displays multiple workflow steps 
+                    side by side on desktop (48rem+) and stacks them vertically on mobile. Perfect for 
+                    presenting related problems, solutions, or comparative content.
+                  </p>
+                </div>
+              </div>
+
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Side-by-Side Layout (Right)</h3>
+                  <p class="workflow-step__text">
+                    <strong>Responsive behavior:</strong> Two columns on desktop, single column on mobile
+                  </p>
+                  <p class="workflow-step__text">
+                    Each workflow step within the row maintains its individual styling and modifiers. 
+                    The row removes bottom margins and padding from child steps to prevent excessive 
+                    spacing. Use this when you want to present multiple related points or comparisons 
+                    in a balanced layout.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <!-- Photo left, text right -->
             <div class="workflow-step workflow-step--left-photo">
               <div class="workflow-step__photo workflow-step__photo--full-height">
@@ -88,6 +120,56 @@
                   modifier allows the photo to display at its natural height without being constrained to match 
                   the text box height. Perfect for tall images like portraits or A4 documents.
                 </p>
+              </div>
+            </div>
+
+            <!-- Small photo variant -->
+            <div class="workflow-step workflow-step--left-photo workflow-step--photo-small">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/placeholder/placeholder-A4-B.png" alt="Small photo example">
+                <p class="workflow-step__photo-caption">Small photo (1/3 width)</p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Small Photo Layout</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> + <code>.workflow-step--photo-small</code>
+                </p>
+                <p class="workflow-step__text">
+                  The small photo variant makes the photo take only 1/3 of the available width, giving more space 
+                  to text content. The grid adjusts automatically based on photo position: left-photo uses 
+                  <code>1fr 2fr</code> while right-photo uses <code>2fr 1fr</code> to ensure the photo always 
+                  gets the smaller portion regardless of its position.
+                </p>
+                <ul>
+                  <li><strong>Photo size:</strong> 1/3 of container width</li>
+                  <li><strong>Text space:</strong> 2/3 of container width</li>
+                  <li><strong>Best for:</strong> Text-heavy content with supporting images</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Large photo variant -->
+            <div class="workflow-step workflow-step--right-photo workflow-step--photo-large">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Large Photo Layout</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--right-photo</code> + <code>.workflow-step--photo-large</code>
+                </p>
+                <p class="workflow-step__text">
+                  The large photo variant makes the photo take 2/3 of the available width, emphasizing the visual. 
+                  The grid columns automatically adjust: left-photo uses <code>2fr 1fr</code> while right-photo 
+                  uses <code>1fr 2fr</code> to ensure the photo always gets the larger portion regardless of 
+                  whether it's positioned left or right.
+                </p>
+                <ul>
+                  <li><strong>Photo size:</strong> 2/3 of container width</li>
+                  <li><strong>Text space:</strong> 1/3 of container width</li>
+                  <li><strong>Best for:</strong> Visual-focused content with minimal text</li>
+                </ul>
+              </div>
+              <div class="workflow-step__photo">
+                <img src="../assets/images/placeholder/placeholder-16-9-A.png" alt="Large photo example">
+                <p class="workflow-step__photo-caption">Large photo (2/3 width)</p>
               </div>
             </div>
 
@@ -186,6 +268,57 @@
                 </p>
               </div>
             </div>
+
+            <!-- Two photos horizontal example -->
+            <div class="workflow-step workflow-step--right-photo">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Two Photos - Horizontal Layout</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--right-photo</code> + <code>.workflow-step__photo--two-horizontal</code>
+                </p>
+                <p class="workflow-step__text">
+                  Perfect for before/after comparisons, side-by-side mockups, or any two related images 
+                  that benefit from horizontal comparison. On desktop, photos display side by side. 
+                  On mobile, they stack vertically for better viewing.
+                </p>
+              </div>
+              <div class="workflow-step__photo workflow-step__photo--two-horizontal">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-16-9-A.png" alt="Before state">
+                  <p class="workflow-step__photo-caption">Before</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-16-9-B.png" alt="After state">
+                  <p class="workflow-step__photo-caption">After</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Two photos vertical example -->
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo workflow-step__photo--two-vertical">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-A4-A.png" alt="Mobile view">
+                  <p class="workflow-step__photo-caption">Mobile Layout</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/placeholder/placeholder-A4-B.png" alt="Desktop view">
+                  <p class="workflow-step__photo-caption">Desktop Layout</p>
+                </div>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Two Photos - Vertical Layout</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--left-photo</code> + <code>.workflow-step__photo--two-vertical</code>
+                </p>
+                <p class="workflow-step__text">
+                  Ideal for showing sequential steps, progressive states, or when you want to maintain 
+                  a vertical narrative flow. Photos remain stacked vertically even on desktop, with 
+                  a centered, constrained width for optimal viewing. Great for tall images like mobile 
+                  screens or documents.
+                </p>
+              </div>
+            </div>
           </section>
 
           <!-- The Work -->
@@ -226,16 +359,32 @@
                 </p>
                 <ul>
                   <li><code>.workflow-step--text-only</code> - Text-only content, max-width 68ch</li>
-                  <li><code>.workflow-step--left-photo</code> - Photo left, text right, two-column grid</li>
-                  <li><code>.workflow-step--right-photo</code> - Text left, photo right, two-column grid</li>
+                  <li><code>.workflow-step--left-photo</code> - Photo left, text right, two-column grid (1:1 ratio)</li>
+                  <li><code>.workflow-step--right-photo</code> - Text left, photo right, two-column grid (1:1 ratio)</li>
                   <li><code>.workflow-step--photo-center</code> - Centered layout with text above/below photo</li>
+                </ul>
+                <p class="workflow-step__text">
+                  <strong>Photo Size Variants (for left-photo and right-photo):</strong>
+                </p>
+                <ul>
+                  <li><code>.workflow-step--photo-small</code> - Photo takes 1/3 width, text takes 2/3 (text-focused)</li>
+                  <li><code>.workflow-step--photo-large</code> - Photo takes 2/3 width, text takes 1/3 (visual-focused)</li>
+                  <li><em>Default (no modifier)</em> - Photo and text each take 1/2 width (balanced)</li>
+                </ul>
+                <p class="workflow-step__text">
+                  <strong>Container Options:</strong>
+                </p>
+                <ul>
+                  <li><code>.workflow-step-row</code> - Container for side-by-side workflow steps (2 columns on desktop, 1 on mobile)</li>
                 </ul>
                 <p class="workflow-step__text">
                   <strong>Modifiers:</strong>
                 </p>
                 <ul>
                   <li><code>.workflow-step__photo--full-height</code> - Remove height constraint, show photo at natural size</li>
-                  <li><code>.workflow-step__photo--multiple</code> - Display multiple images in a grid layout</li>
+                  <li><code>.workflow-step__photo--multiple</code> - Display multiple images in a flexible grid layout (auto-fit)</li>
+                  <li><code>.workflow-step__photo--two-horizontal</code> - Display exactly 2 images side by side on desktop, stacked on mobile</li>
+                  <li><code>.workflow-step__photo--two-vertical</code> - Display exactly 2 images stacked vertically, even on desktop</li>
                 </ul>
               </div>
             </div>
