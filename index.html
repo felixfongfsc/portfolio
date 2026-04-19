@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Felix Fong | Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="nav__logo" href="#">Felix Fong</a>
-
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">
-        <span class="sr-only">Menu</span>
-        <span class="nav__hamburger" aria-hidden="true"></span>
-      </button>
-
-      <ul class="nav__links" id="nav-links" role="list">
-        <li><a class="nav__link" href="#">Home</a></li>
-        <li><a class="nav__link" href="#about">About</a></li>
-        <li><a class="nav__link" href="#works">Works</a></li>
-        <li><a class="nav__link" href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="site-header"></header>
 
   <main>
     <!-- ===================== HOME ===================== -->
@@ -50,9 +36,11 @@
         <div class="about__bio">
           <h2 class="section-title">About</h2>
           <p>
-            I'm a UI/UX designer with a passion for crafting clean, purposeful digital experiences.
-            My work spans product design, interaction design, and 3D modeling — always with an eye
-            toward clarity, restraint, and the human on the other side of the screen.
+            I’m Felix Fong, a UI/UX designer and student in the BSc Creative Media programme at City University of Hong
+            Kong. With two years of experience from self‑initiated and competition projects, I focus on creating simple,
+            accessible, and minimalistic digital experiences. Most of my work is built in Figma, while I use Procreate
+            and GoodNotes 5 for quick low‑fidelity sketching. I am currently looking for a chance to bring clean,
+            user‑centred designs to real‑world products.
           </p>
         </div>
       </div>
@@ -78,7 +66,10 @@
     <section id="contact" class="contact">
       <h2 class="section-title">Contact</h2>
       <p class="contact__prompt">Interested in working together? Let's talk.</p>
-      <a href="mailto:hello@felixfong.com" class="contact__email">felixfongfsc@gmail.com</a>
+      <div class="contact__methods">
+        <a href="tel:+85261494171" class="contact__phone">+852 6149 4171</a>
+        <a href="mailto:felixfongfsc@gmail.com" class="contact__email">felixfongfsc@gmail.com</a>
+      </div>
     </section>
   </main>
 
@@ -87,4 +78,5 @@
   <script src="js/nav.js"></script>
   <script src="js/lightbox.js"></script>
 </body>
+
 </html>

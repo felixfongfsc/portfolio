@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ArtMax — Felix Fong</title>
+  <title>ArtMax | Felix Fong</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -33,12 +33,32 @@
 
           <!-- Right: overview panel — meta-grid populated by casestudy.js -->
           <aside class="cs-overview" aria-labelledby="cs-overview-heading">
-            <h2 id="cs-overview-heading" class="cs-overview__title">Project Overview</h2>
+            <h2 id="cs-overview-heading" class="cs-overview__title">Project Details</h2>
             <dl class="meta-grid"></dl>
           </aside>
 
         </div><!-- /.cs-hero__inner -->
       </div><!-- /.cs-hero -->
+
+      <!-- ===================== PROJECT DESCRIPTION ===================== -->
+      <section class="cs-description">
+        <div class="cs-description__inner">
+          <h2 class="cs-description__title">Project Overview</h2>
+          <p class="cs-description__text">
+            ArtMax is a social platform designed specifically for artists at all skill levels. It combines a clean
+            art-sharing feed with structured mentorship opportunities, helping beginners find guidance and experienced
+            artists share their knowledge. Unlike cluttered mainstream platforms or intimidating portfolio sites, ArtMax
+            offers a welcoming space where artists can learn, grow, and connect through organized lessons, events, and
+            community support.
+          </p>
+          <div class="cs-btn-group">
+            <a href="https://www.figma.com/proto/SJ4wS8Tk6EeaOk5MwEUam4/ArtMax-Prototype?node-id=7327-5753&t=GvgTJmqYChToXl08-1"
+              class="cs-btn" target="_blank">View Prototype (Figma)</a>
+            <a href="https://youtu.be/tSZYw_ueFhg" 
+              class="cs-btn" target="_blank">Watch Demo Video (YouTube)</a>
+          </div>
+        </div>
+      </section>
 
       <!-- ===================== TABS ===================== -->
       <div class="cs-tabs">
@@ -115,7 +135,7 @@
               </div>
 
               <div class="workflow-step__content">
-                <h3 class="workflow-step__title">User research</h3>
+                <h3 class="workflow-step__title">User Research</h3>
                 <p class="workflow-step__text">For user researching, I spoke with artists at different skill levels.
                   From beginners who had never used digital tools to seasoned illustrators looking to mentor. Each
                   person revealed unique pain points and hopes.
@@ -156,7 +176,7 @@
             <div class="workflow-step workflow-step--right-photo workflow-step--photo-small">
               <div class="workflow-step__photo">
                 <img src="../assets/images/artmax/brainstorm_memo.png" alt="Brainstorm idea on memo papers.">
-                <p class="workflow-step__photo-caption">Brainstorming idea of features in ArtMax on memo papers</p>
+                <p class="workflow-step__photo-caption">Brainstorming idea of features in ArtMax on memo papers.</p>
               </div>
               <div class="workflow-step__content">
                 <h3 class="workflow-step__title">Brainstorming</h3>
@@ -177,7 +197,7 @@
                 <p class="workflow-step__photo-caption">Low‑fidelity sketch of ArtMax’s core screens and navigation.</p>
               </div>
               <div class="workflow-step__content">
-                <h3 class="workflow-step__title">Low‑fidelity wireframes</h3>
+                <h3 class="workflow-step__title">Low‑fidelity Wireframes</h3>
                 <p class="workflow-step__text">
                   Before opening Figma, I sketched rough wireframes on GoodNotes. This helped me think about layout and
                   user flow without getting distracted by colors or fonts. I mapped out the main pages: a home feed for
@@ -199,23 +219,174 @@
           <section class="cs-section cs-highfi" aria-labelledby="cs-highfi-heading">
             <h2 id="cs-highfi-heading" class="cs-section-title">High‑Fidelity Design</h2>
 
-            <div class="workflow-step workflow-step--text-only">
+            <div class="workflow-step workflow-step--right-photo workflow-step--photo-small">
+
+              <div class="workflow-step__photo">
+                <img src="../assets/images/artmax/ui/main.png" alt="Main page of ArtMax.">
+                <p class="workflow-step__photo-caption">Main page of ArtMax.</p>
+              </div>
 
               <div class="workflow-step__content">
-                <h3 class="workflow-step__title">Target Audience</h3>
+                <h3 class="workflow-step__title">Visual Direction</h3>
+                <p class="workflow-step__text">
+                  I chose a minimalistic style for ArtMax to reduce visual clutter and make the interface feel calm and
+                  approachable. This is especially important for tech illiterate artists who may feel overwhelmed by
+                  busy designs. The colour palette is mostly white, creating a clean canvas that lets artwork and event
+                  photos stand out. A single purple accent is used sparingly for interactive elements like buttons,
+                  links, and active navigation icons.
+                </p>
+                <p class="workflow-step__text">
+                  For typography, I selected <span class="font-showcase__work-sans">Work
+                    Sans</span> as the primary font for body text, labels, and descriptions
+                  because of its high legibility and modern, neutral look. To give the platform a distinctive
+                  personality, I used <span class="font-showcase__wittgenstein">Wittgenstein</span> for special
+                  titles, such as the platform name "ArtMax" and the main
+                  navigation labels (Discover, Mentoring, Personal). This contrast between a functional sans serif and a
+                  more expressive display font helps establish visual hierarchy while keeping the overall interface
+                  clean.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Key UI Components & Modular Design System</h3>
 
                 <p class="workflow-step__text">
-                  ArtMax serves three types of users. First, <b>beginner artists</b> who feel lost among talented
-                  creators on sites like Pixiv or DeviantArt and lack a clear path to improve. Second,
-                  <b>tech-illiterate artists</b> who find mainstream social media overwhelming and need a simple,
-                  minimalistic
-                  interface. Third, <b>experienced artists</b> who want to become mentors, who have skills to share (in
-                  Procreate, Photoshop, Figma, etc.) and are looking for a structured way to teach and connect with
-                  learners.
+                  I built a modular design system in Figma to ensure consistency and speed up my workflow. Each key UI
+                  component is a reusable asset with auto layout and variants.
                 </p>
               </div>
 
             </div>
+
+            <div class="workflow-step workflow-step--left-photo workflow-step--photo-large">
+              <div class="workflow-step__photo workflow-step__photo--multiple">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/post_forVertical.png"
+                    alt="Vertical scrolling post component for main feed">
+                  <p class="workflow-step__photo-caption">Vertical scrolling post for main feed</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/post_forVerticalExpand.png"
+                    alt="Expanded post component showing additional details and actions">
+                  <p class="workflow-step__photo-caption">Expanded post with details and actions</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/thumbnailPost_forHorizontal.png"
+                    alt="Thumbnail post component for horizontal scrolling">
+                  <p class="workflow-step__photo-caption">Thumbnail post for horizontal scrolling</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/calender.png" alt="Calendar component for event dates">
+                  <p class="workflow-step__photo-caption">Calendar component for event dates</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/personCards.png"
+                    alt="User card component showing profile picture, name, and membership status">
+                  <p class="workflow-step__photo-caption">User card for mentorship and messages</p>
+                </div>
+              </div>
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  For the content feed, I created two types of post components: a vertical scrolling post for the main
+                  feed, and a smaller thumbnail post for horizontal scrolling at the top of the feed. When a user holds
+                  a post, an expanded version appears with more details and actions, which is built as a separate
+                  component. I also designed a calendar component for event dates and a user card
+                  for mentorship listings and direct messages, showing a profile picture, name, and the membership
+                  status.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--right-photo workflow-step--photo-small">
+              <div class="workflow-step__photo workflow-step__photo--two-horizontal">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/chat.png"
+                    alt="Vertical scrolling post component for main feed">
+                  <p class="workflow-step__photo-caption">Vertical scrolling post for main feed</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/artmax/ui/modules/postIinfoExpand.png"
+                    alt="Expanded post component showing additional details and actions">
+                  <p class="workflow-step__photo-caption">Expanded post with details and actions</p>
+                </div>
+              </div>
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  By altering variants, changing one master component updates every screen instantly.
+                  This modular approach saved time and kept the interface visually unified.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  <b>For more design examples, including additional components and screen variations, please check the
+                    gallery section above.</b>
+                </p>
+              </div>
+
+            </div>
+          </section>
+          <section class="cs-section cs-prototype">
+            <h2 id="cs-prototype-heading" class="cs-section-title">Prototype</h2>
+
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  After completing the high‑fidelity design, I built an interactive prototype in Figma to simulate the
+                  core user experience. The prototype focuses on two complete flows.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step-row">
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Browsing and Interacting with Posts</h3>
+                  <p class="workflow-step__text">
+                    From the main page, a user can scroll through a feed of posts – these include artwork sharing posts
+                    and event announcements. Tapping any post opens a detail page with full content, including the
+                    artwork description or event time, venue, and comments from other users. From this detail page, the
+                    user can leave a comment or directly contact the event holder or the artist who posted the work.
+                  </p>
+                </div>
+              </div>
+
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Mentorship and Purchase</h3>
+                  <p class="workflow-step__text">
+                    The user navigates to the Mentoring section, where they can explore available lessons. Tapping on a
+                    lesson opens the lesson detail page, showing information such as duration, price, and syllabus. From
+                    there, the user can proceed to purchase the lesson. The user can also view the mentor’s profile
+                    separately, which includes the mentor’s portfolio and comments from their students.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Interactions and Prototype Fidelity</h3>
+                <p class="workflow-step__text">
+                  I added simple but meaningful interactions. Tapping any icon in the bottom navigation bar switches
+                  pages with a smooth fade transition. Holding a post reveals an expanded overlay with additional
+                  actions, such as saving or reporting the post. Not every secondary button is active, but most of the
+                  critical paths for usability testing are fully functional.
+                </p>
+                <p class="workflow-step__text">
+                  A video demo of the prototype is available <a href="https://youtu.be/tSZYw_ueFhg"
+                    target="_blank">here</a>.
+                </p>
+              </div>
+            </div>
+
+
           </section>
 
         </div><!-- /#tab-process -->

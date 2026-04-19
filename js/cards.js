@@ -12,6 +12,7 @@
 function buildProjectCard(project, thumbPrefix = "") {
   const li = document.createElement("li");
   li.className = "project-card";
+  const startDate = project.overview?.since ? `<span class="project-card__since">${project.overview.since}</span>` : "";
   li.innerHTML = `
     <a href="${thumbPrefix}${project.url}" class="project-card__link">
       <div class="project-card__thumb">
@@ -20,7 +21,10 @@ function buildProjectCard(project, thumbPrefix = "") {
       <div class="project-card__meta">
         <span class="project-card__title">${project.title}</span>
         ${project.caption ? `<span class="project-card__caption">${project.caption}</span>` : ""}
-        <span class="project-card__discipline">${project.discipline}</span>
+        <div class="project-card__footer">
+          <span class="project-card__discipline">${project.discipline}</span>
+          ${startDate}
+        </div>
       </div>
     </a>
   `;

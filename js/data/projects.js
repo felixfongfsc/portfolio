@@ -29,8 +29,10 @@ const projects = [
     overview: {
       role:     "Full-Stack Designer & Developer",
       timeline: "Ongoing Development",
+      since:    "04/2026",
       teamSize: "1",
       platform: "Web (Responsive)",
+      tools:    "HTML, CSS, JavaScript",
     },
     slides: [
       { src: "../assets/images/placeholder/placeholder-16-9-A.png", alt: "Template Slideshow A", caption: "Gallery Grid System Overview" },
@@ -51,35 +53,6 @@ const projects = [
     ],
   },
   {
-    id:         "artmax",
-    title:      "ArtMax",
-    caption:    "A minimalistic mentorship hub where artists learn, share portfolios, and discover events.",
-    discipline: "UI/UX Design",
-    thumb:      "assets/images/artmax/thumb.png",
-    url:        "works/artmax.html",
-    highlight:  true,
-    works:      true,
-    accentColor: "#9563F9",
-    overview: {
-      role:     "Lead UI/UX Designer (Concept Developer, Low & High‑Fidelity UI, Prototyping)",
-      timeline: "3 weeks",
-      teamSize: "5",
-      platform: "Mobile (iOS & Android)",
-    },
-    slides: [
-      { src: "../assets/images/artmax/thumb.png", alt: "ArtMax Thumbnail", caption: "ArtMax, a minimalistic mentorship hub." },
-    ],
-    gallery: [
-      { src: "../assets/images/artmax/ui/welcome.png", alt: "ArtMax Welcome Page", caption: "Welcome Screen", description: "Welcome page for new users." },
-      { src: "../assets/images/artmax/ui/main.png", alt: "ArtMax Main Page", caption: "Main Dashboard", description: "Central hub for discovering content and mentors." },
-      { src: "../assets/images/artmax/ui/article2.png", alt: "ArtMax Article Page", caption: "Article View", description: "Reading experience for educational content or upcoming events." },
-      { src: "../assets/images/artmax/ui/mentoring.png", alt: "ArtMax Mentoring Page", caption: "Mentoring Hub", description: "Browsing various lessons, connecting with experienced artists and mentors" },
-      { src: "../assets/images/artmax/ui/lesson.png", alt: "ArtMax Lesson Page", caption: "Lesson Page", description: "Looking for details of your interested lesson." },
-      { src: "../assets/images/artmax/ui/mentor.png", alt: "ArtMax Mentor Page", caption: "Mentor Profile", description: "Detailed mentor information and booking interface." },
-      { src: "../assets/images/artmax/thumb.png", alt: "ArtMax Thumbnail", caption: "ArtMax Thumbnail", description: "ArtMax Thumbnail"},
-    ],
-  },
-  {
     id:         "saushun",
     title:      "SauShun",
     caption:    "An e-commerce app that solves cross-border proxy purchasing problems for overseas shoppers.",
@@ -92,8 +65,10 @@ const projects = [
     overview: {
       role:     "UI/UX Designer",
       timeline: "2 months",
+      since:    "09/2025",
       teamSize: "3",
       platform: "Mobile (iOS)",
+      tools:    "Figma, Procreate (For Low-Fi), Notion",
     },
     slides: [
       // { src: "../assets/images/saushun/screen-01.jpg", alt: "SauShun agent marketplace", caption: "Agent marketplace" },
@@ -102,6 +77,37 @@ const projects = [
     gallery: [
       // { src: "../assets/images/saushun/gallery-01.jpg", alt: "SauShun agent marketplace" },
       // { src: "../assets/images/saushun/gallery-02.jpg", alt: "SauShun order tracking" },
+    ],
+  },
+  {
+    id:         "artmax",
+    title:      "ArtMax",
+    caption:    "A minimalistic mentorship hub where artists learn, share portfolios, and discover events.",
+    discipline: "UI/UX Design",
+    thumb:      "assets/images/artmax/thumb.png",
+    url:        "works/artmax.html",
+    highlight:  true,
+    works:      true,
+    accentColor: "#9563F9",
+    overview: {
+      role:     "Lead UI/UX Designer (Concept Developer, Low & High‑Fidelity UI, Prototyping)",
+      timeline: "3 weeks",
+      since:    "10/2024",
+      teamSize: "5",
+      platform: "Mobile (iOS & Android)",
+      tools:    "Figma, Goodnotes 5 (For Low-Fi)",
+    },
+    slides: [
+      { src: "../assets/images/artmax/thumb.png", alt: "ArtMax Thumbnail", caption: "ArtMax, a minimalistic mentorship hub." },
+    ],
+    gallery: [
+      { src: "../assets/images/artmax/ui/welcome.png", alt: "ArtMax Welcome Page", caption: "Welcome Screen", description: "Welcome page for new users." },
+      { src: "../assets/images/artmax/ui/main.png", alt: "ArtMax Main Page", caption: "Main Dashboard", description: "Central hub for discovering content and mentors." },
+      { src: "../assets/images/artmax/ui/article2.png", alt: "ArtMax Article Page", caption: "Article/Post View", description: "Reading experience for educational content or upcoming events." },
+      { src: "../assets/images/artmax/ui/mentoring.png", alt: "ArtMax Mentoring Page", caption: "Mentoring Hub", description: "Browsing various lessons, connecting with experienced artists and mentors" },
+      { src: "../assets/images/artmax/ui/lesson.png", alt: "ArtMax Lesson Page", caption: "Lesson Page", description: "Looking for details of your interested lesson." },
+      { src: "../assets/images/artmax/ui/mentor.png", alt: "ArtMax Mentor Page", caption: "Mentor Profile", description: "Detailed mentor information and booking interface." },
+      { src: "../assets/images/artmax/thumb.png", alt: "ArtMax Thumbnail", caption: "ArtMax Thumbnail", description: "ArtMax Thumbnail"},
     ],
   },
 ];

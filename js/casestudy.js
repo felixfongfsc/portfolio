@@ -52,17 +52,18 @@ function buildSlideshow(container, slides) {
 
   container.appendChild(track);
 
-  // ── Dots — always rendered (1 dot minimum for placeholder) ──────────
-  const dotsWrap = document.createElement('div');
-  dotsWrap.className = 'cs-slideshow__dots';
-  dotsWrap.setAttribute('aria-hidden', 'true');
-  const dotCount = Math.max(slides.length, 1);
-  for (let i = 0; i < dotCount; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'cs-slideshow__dot' + (i === 0 ? ' cs-slideshow__dot--active' : '');
-    dotsWrap.appendChild(dot);
+  // ── Dots — only render when there are multiple slides ───────────────
+  if (slides.length > 1) {
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'cs-slideshow__dots';
+    dotsWrap.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'cs-slideshow__dot' + (i === 0 ? ' cs-slideshow__dot--active' : '');
+      dotsWrap.appendChild(dot);
+    }
+    container.appendChild(dotsWrap);
   }
-  container.appendChild(dotsWrap);
 
   // ── Prev / next — only when more than one real slide ────────────────
   if (slides.length > 1) {
@@ -196,7 +197,7 @@ function buildGallery(container, images) {
   if (images.length === 0) {
     const ph = document.createElement('div');
     ph.className = 'cs-gallery__placeholder';
-    ph.innerHTML = '<p>Gallery images coming soon.</p>';
+    ph.innerHTML = '<p>Gallery images coming soon. If you believe this is an error, please let me know.</p>';
     container.appendChild(ph);
     return;
   }
@@ -258,7 +259,7 @@ function buildGallery(container, images) {
   }
 
   // ── Populate page <title> ──────────────────────────────────────────
-  document.title = project.title + ' — Felix Fong';
+  document.title = project.title + ' | Felix Fong';
 
   // ── Populate cs-header ─────────────────────────────────────────────
   const discipline = document.querySelector('.cs-header__discipline');
@@ -274,8 +275,10 @@ function buildGallery(container, images) {
     const labels = {
       role:     'Role',
       timeline: 'Timeline',
+      since:  'Since',
       teamSize: 'Team Size',
       platform: 'Platform',
+      tools:    'Tools',
     };
     dl.innerHTML = '';
     Object.entries(labels).forEach(([key, label]) => {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Template Case Study — Felix Fong</title>
+  <title>Template Case Study | Felix Fong</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -38,6 +38,25 @@
         </div><!-- /.cs-hero__inner -->
       </div><!-- /.cs-hero -->
 
+      <!-- ===================== PROJECT DESCRIPTION ===================== -->
+      <section class="cs-description">
+        <div class="cs-description__inner">
+          <h2 class="cs-description__title">Project Overview</h2>
+          <p class="cs-description__text">
+            This is where you provide a concise overview of your project. Describe what it is, who it's for, 
+            and what problem it solves. Keep it engaging and accessible to give readers context before they 
+            dive into the detailed process or gallery.
+          </p>
+          
+          <!-- Example button group for prototype/video links -->
+          <div class="cs-btn-group">
+            <a href="#" class="cs-btn">View Prototype</a>
+            <a href="#" class="cs-btn">Watch Demo Video</a>
+            <a href="#" class="cs-btn">Live Site</a>
+          </div>
+        </div>
+      </section>
+
       <!-- ===================== TABS ===================== -->
       <div class="cs-tabs">
         <div class="cs-tabs__bar" role="tablist" aria-label="Case study sections">
@@ -68,6 +87,19 @@
                   This layout is for text-only content without images. It has a max-width of 68ch for 
                   optimal readability. Use this when you want to present narrative content, problem 
                   statements, or conclusions without accompanying visuals.
+                </p>
+              </div>
+            </div>
+
+            <!-- Full-width text-only workflow step -->
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Full-Width Text-Only Layout Example</h3>
+                <p class="workflow-step__text">
+                  <strong>Classes used:</strong> <code>.workflow-step--text-only</code> + <code>.workflow-step--full-width</code>
+                </p>
+                <p class="workflow-step__text">
+                  This variant removes the 68ch width constraint, allowing text to extend to the full available width of the container. This is useful when you need to display wide content like tables, code blocks, or when you want the text to span the entire content area for visual emphasis. The full-width modifier overrides the default max-width constraint while maintaining all other text-only styling.
                 </p>
               </div>
             </div>
@@ -178,6 +210,33 @@
               each CSS class and its intended use case."</p>
               <cite>— Template Documentation</cite>
             </blockquote>
+
+            <!-- Example of case study buttons -->
+            <div class="workflow-step workflow-step--text-only">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Case Study Buttons</h3>
+                <p class="workflow-step__text">
+                  Use these buttons in the description section to link to prototypes, videos, or other external resources.
+                  The buttons have rounded corners and a simple hover effect that inverts the colors.
+                </p>
+                
+                <!-- Button group example -->
+                <div class="cs-btn-group">
+                  <a href="#" class="cs-btn">View Prototype</a>
+                  <a href="#" class="cs-btn">Watch Demo Video</a>
+                  <a href="#" class="cs-btn">Live Site</a>
+                </div>
+                
+                <p class="workflow-step__text">
+                  <strong>Usage:</strong>
+                </p>
+                <ul>
+                  <li><code>.cs-btn</code> - Button with rounded corners (16px border-radius)</li>
+                  <li><code>.cs-btn-group</code> - Container for multiple buttons</li>
+                  <li><strong>Hover effect:</strong> Background becomes accent color, text becomes background color</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           <!-- Ideation -->
@@ -378,7 +437,13 @@
                   <li><code>.workflow-step-row</code> - Container for side-by-side workflow steps (2 columns on desktop, 1 on mobile)</li>
                 </ul>
                 <p class="workflow-step__text">
-                  <strong>Modifiers:</strong>
+                  <strong>Layout Modifiers:</strong>
+                </p>
+                <ul>
+                  <li><code>.workflow-step--full-width</code> - Remove width constraint from text-only layouts (use with <code>.workflow-step--text-only</code>)</li>
+                </ul>
+                <p class="workflow-step__text">
+                  <strong>Photo Modifiers:</strong>
                 </p>
                 <ul>
                   <li><code>.workflow-step__photo--full-height</code> - Remove height constraint, show photo at natural size</li>
