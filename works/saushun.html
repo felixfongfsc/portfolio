@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SauShun — Felix Fong</title>
+  <title>SauShun | Felix Fong</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
 
   <header class="site-header"></header>
@@ -38,11 +40,35 @@
         </div><!-- /.cs-hero__inner -->
       </div><!-- /.cs-hero -->
 
+      <!-- ===================== PROJECT DESCRIPTION ===================== -->
+      <section class="cs-description">
+        <div class="cs-description__inner">
+          <h2 class="cs-description__title">Project Overview</h2>
+          <p class="cs-description__text">
+            SauShun is an application that makes global proxy buying more accessible and convenient for everyone. We
+            overturn the traditional proxy model by inviting travelers from around the world to become our partners.
+            Travelers simply accept tasks, purchase designated items, and deliver them upon returning home, earning
+            shipping fees with ease. SauShun allows users to access new overseas products, limited editions, and unique
+            items that traditional proxy services cannot offer, putting an end to complicated processes and high costs
+            with no extra proxy fees.
+          </p>
+          <p class="cs-description__text">
+            This project was developed for an entrepreneurship competition, which influenced both the timeline and the scope of the prototype. The following case study reflects those constraints.
+          </p>
+          <div class="cs-btn-group">
+            <a href="https://www.figma.com/proto/JNS8KA9uNX704P8SCa9Uv2/SauShun-Prototype?node-id=24-228&t=b9oN1Wamr2iEJ3PX-1" class="cs-btn" target="_blank">View Prototype (Figma) <span
+                class="material-symbols-rounded">arrow_right_alt</span></a>
+          </div>
+        </div>
+      </section>
+
       <!-- ===================== TABS ===================== -->
       <div class="cs-tabs">
         <div class="cs-tabs__bar" role="tablist" aria-label="Case study sections">
-          <button class="cs-tabs__tab cs-tabs__tab--active" role="tab" aria-selected="true"  aria-controls="tab-gallery" id="btn-gallery">Gallery</button>
-          <button class="cs-tabs__tab"                       role="tab" aria-selected="false" aria-controls="tab-process" id="btn-process">Process</button>
+          <button class="cs-tabs__tab cs-tabs__tab--active" role="tab" aria-selected="true" aria-controls="tab-gallery"
+            id="btn-gallery">Gallery</button>
+          <button class="cs-tabs__tab" role="tab" aria-selected="false" aria-controls="tab-process"
+            id="btn-process">Process</button>
         </div>
 
         <!-- GALLERY TAB — populated by casestudy.js -->
@@ -51,25 +77,302 @@
         </div>
 
         <!-- PROCESS TAB -->
-        <div class="cs-tabs__panel cs-tabs__panel--hidden" id="tab-process" role="tabpanel" aria-labelledby="btn-process">
+        <div class="cs-tabs__panel cs-tabs__panel--hidden" id="tab-process" role="tabpanel"
+          aria-labelledby="btn-process">
 
           <!-- The Problem -->
           <section class="cs-section cs-problem" aria-labelledby="cs-problem-heading">
             <h2 id="cs-problem-heading" class="cs-section-title">The Problem</h2>
-            TEMP
+
+            <div class="workflow-step-row">
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Inefficient Access to Overseas Products</h3>
+                  <p class="workflow-step__text">
+                    Cross border shopping remains frustrating for buyers who want limited edition items, new overseas
+                    releases, or unique regional goods. Traditional proxy buying services impose high fees, rely on slow
+                    consolidated shipping that can take weeks or months, and require complex coordination. As a result,
+                    desirable international products stay out of reach, and buyers face unnecessary delays and costs.
+                  </p>
+                </div>
+              </div>
+
+              <div class="workflow-step workflow-step--text-only">
+                <div class="workflow-step__content">
+                  <h3 class="workflow-step__title">Trust Deficit in Proxy Purchasing</h3>
+                  <p class="workflow-step__text">
+                    Individual proxy buyers often lack credibility, making it difficult for customers to verify
+                    reliability before committing to a purchase. Fraud risks are common, and each transaction demands
+                    excessive time for communication, order placement, and follow up. Peer to peer marketplaces offer
+                    little protection, requiring self arranged meetups and leaving price disputes unresolved. Large
+                    proxy companies charge premium prices without guaranteeing trust. This trust deficit discourages
+                    users from engaging with cross border shopping, limiting access to authentic, fairly priced
+                    products.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Research & Discovery -->
+          <section class="cs-section cs-ideation" aria-labelledby="cs-ideation-heading">
+            <h2 id="cs-ideation-heading" class="cs-section-title">Research &amp; Discovery</h2>
+
+            <div class="workflow-step workflow-step--text-only">
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">User Research</h3>
+                <p class="workflow-step__text">
+                  Our research is grounded in lived experience. The founding team members are regular users of proxy
+                  purchasing services. Through years of buying overseas limited‑edition products and navigating
+                  traditional proxy channels, we have directly encountered the same frustrations that many consumers
+                  face. This internal, experience‑driven insight forms the foundation of our problem definition and
+                  design decisions.
+                </p>
+                <p class="workflow-step__text">
+                  We supplemented our personal knowledge by observing common complaints across online communities
+                  (social media, forums, review platforms), analyzing existing proxy platforms to identify recurring
+                  pain points in their user journeys, discussing informally with fellow proxy buyers and frequent
+                  travelers to validate our assumptions.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only">
+
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Target Audience</h3>
+
+                <p class="workflow-step__text">
+                  The solution serves two primary user groups. The first group is <b>Overseas Shopping Demanders, or
+                    Buyers</b>. These are people who want limited edition, region exclusive, or new release products not
+                  available locally. They are frustrated by high proxy fees, long consolidation waits, and unclear
+                  communication, and they are often hesitant to trust unknown individual proxy sellers due to fraud
+                  risks.
+                </p>
+                <p class="workflow-step__text">
+                  The second group is <b>Cross Border Travelers, or Carriers</b>. These include frequent travelers such
+                  as
+                  tourists, students abroad, business travelers, flight attendants, and tour guides. They have unused
+                  luggage capacity and are open to earning small fees by carrying items, but they dislike arranging
+                  meetups and prefer a simple, low effort process.
+                </p>
+              </div>
+
+            </div>
           </section>
 
           <!-- Ideation -->
-          <section class="cs-section cs-ideation" aria-labelledby="cs-ideation-heading">
-            <h2 id="cs-ideation-heading" class="cs-section-title">Ideation &amp; Exploration</h2>
-            TEMP
+          <section class="cs-section cs-work" aria-labelledby="cs-work-heading">
+            <h2 id="cs-work-heading" class="cs-section-title">Ideation &amp; Exploration</h2>
+
+            <div class="workflow-step workflow-step--right-photo">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/saushun/brainstorm_userFlow.png" alt="After state">
+                <p class="workflow-step__photo-caption">A brief user flow.</p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Brainstorming</h3>
+                <p class="workflow-step__text">
+                  The initial brainstorm resulted in a simple user flow covering the full lifecycle of a task, from
+                  discovering goods to completing purchase. For <b><u>buyers</u></b>, this includes browsing, creating a
+                  task with
+                  item details, receiving an automated price and shipping estimate, making an escrow protected payment,
+                  tracking the order, picking up the item from a smart locker or courier, and finally leaving a review.
+                  For <b><u>travelers</u></b>, the flow starts with viewing acceptable tasks, accepting an order,
+                  purchasing the item
+                  abroad, dropping it off at a smart locker or hub, receiving earnings settlement, and then rating the
+                  buyer.
+                </p>
+                <p class="workflow-step__text">
+                  A more detailed user flow with decision points will be
+                  presented later in this case study.
+                </p>
+              </div>
+            </div>
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/saushun/lowfi_1.png" alt="Mobile view">
+                <img src="../assets/images/saushun/lowfi_2.png" alt="Mobile view">
+                <p class="workflow-step__photo-caption">Low‑fidelity sketch of SauShun’s core screens and navigation.
+                </p>
+              </div>
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Low‑fidelity Wireframes</h3>
+                <p class="workflow-step__text">
+                  With the user flow mapped out, I moved into low-fidelity wireframing. I first created a basic template
+                  on my PC, then transferred it to my iPad in Procreate to begin sketching. This setup allowed me to
+                  iterate quickly while keeping the layouts clean and consistent. At this stage, a clear image of the
+                  app's interface began to emerge. Key screens included a separate home page for buyers and travelers, a
+                  stats page, distinct upload flows for each user type, a post screen, and a private messaging page.
+                  Because we already had a brief user flow defined, simple linking between pages was established, making
+                  the navigation logic easy to test and refine.
+                </p>
+              </div>
+            </div>
           </section>
 
-          <!-- The Work -->
-          <section class="cs-section cs-work" aria-labelledby="cs-work-heading">
-            <h2 id="cs-work-heading" class="cs-section-title">The Work</h2>
-            TEMP
+          <!-- High-Fidelity Design -->
+          <section class="cs-section cs-highfi" aria-labelledby="cs-highfi-heading">
+            <h2 id="cs-highfi-heading" class="cs-section-title">High‑Fidelity Design</h2>
+
+            <div class="workflow-step workflow-step--right-photo">
+              <div class="workflow-step__photo workflow-step__photo--multiple">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/main.png" alt="Login page of Saushun.">
+                  <p class="workflow-step__photo-caption">Login page of Saushun.</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/stats_seller_1.png" alt="Stats - Statistics page for seller.">
+                  <p class="workflow-step__photo-caption">Stats - Statistics page for seller.</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/stats_seller_2.png" alt="Stats - Commission page for seller.">
+                  <p class="workflow-step__photo-caption">Stats - Commission page for seller.</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/saushun_icon.png" alt="Saushun logo by Ian Chui.">
+                  <p class="workflow-step__photo-caption">Saushun logo by Ian Chui.</p>
+                </div>
+              </div>
+
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Visual Direction</h3>
+                <p class="workflow-step__text">
+                  The high‑fidelity design adopts a minimal yet warm visual language. Platforms of this type typically
+                  require displaying large amounts of data, which makes UI design particularly challenging. I focused on
+                  keeping every screen as compact as possible while preserving a clean, minimal impression.
+                </p>
+                <p class="workflow-step__text">
+                  The primary color is orange. It brings energy and enthusiasm, which serves a strategic purpose on a
+                  proxy purchase platform: gently encouraging users to explore and buy. The overall warmth of orange
+                  also softens the data‑heavy interface, making it feel more inviting.
+                </p>
+                <p class="workflow-step__text">
+                  For typography, we use <span class="font-showcase__m-plus-roundedr-1c">Rounded Mplus 1c</span> paired
+                  with Slightly <span class="font-showcase__work-sans">Work Sans</span>. The rounded terminals add
+                  approachability, while the sans‑serif clarity ensures readability across dense information panels.
+                </p>
+                <p class="workflow-step__text">
+                  The logo and key illustrations are credited to <i>Ian Chui</i>, an illustrator. Their work reinforces
+                  the
+                  brand identity with a distinctive, handcrafted feel that balances the functional UI.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+
+              <div class="workflow-step__content">
+                <h3 class="workflow-step__title">Key UI Components & Modular Design System</h3>
+                <p class="workflow-step__text">
+                  The interface relies on a robust set of reusable components. These include a base bar, navigation bar,
+                  advertisement slideshow, data panels for sellers, different message box variants, multiple variants of
+                  username cards, and different request card variants.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="workflow-step workflow-step--photo-center">
+              <div class="workflow-step__photo workflow-step__photo--multiple">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/module/username.png"
+                    alt="Username card component showing same user in different scenarios with list and grid layouts">
+                  <p class="workflow-step__photo-caption">Username cards in various layouts</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/module/requestscard.png"
+                    alt="Request card component variations showing different layouts and picture amount limits">
+                  <p class="workflow-step__photo-caption">Request cards with list and grid layouts, varying picture
+                    limits</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/module/message.png"
+                    alt="Message box component variations for different conversation states">
+                  <p class="workflow-step__photo-caption">Message boxes for different conversation states</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--left-photo">
+              <div class="workflow-step__photo workflow-step__photo--two-horizontal">
+                <div class="workflow-step__photo-item">
+                  <img src="../assets/images/saushun/ui/module/uneven_height_post.png"
+                    alt="Saushun post layout design showing masonry grid with varying image heights">
+                  <p class="workflow-step__photo-caption">Saushun masonry post layout</p>
+                </div>
+                <div class="workflow-step__photo-item">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/af/Screenshot_of_Xiaohongshu_home_page%2C_January_16%2C_2025.jpg?_=20250117000505"
+                    alt="Xiaohongshu home page screenshot showing masonry grid layout inspiration">
+                  <p class="workflow-step__photo-caption">Xiaohongshu reference layout</p>
+                </div>
+              </div>
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  A signature component is the uneven height posts. This design pattern was first introduced in <a
+                    href="artmax.html">ArtMax</a> and is inspired by Xiaohongshu. The uneven heights allow the layout to
+                  accommodate pictures of various sizes while maintaining a clean, minimal sight. More importantly, the
+                  variation in height prevents the view from feeling rigid, adding a natural, vibrant rhythm to the
+                  feed.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only workflow-step--full-width">
+
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  <b>For more design examples, including additional components and screen variations, please check the
+                    gallery section above.</b>
+                </p>
+              </div>
+
+            </div>
           </section>
+
+          <section class="cs-section cs-prototype">
+            <h2 id="cs-prototype-heading" class="cs-section-title">Prototype</h2>
+
+            <div class="workflow-step workflow-step--right-photo">
+              <div class="workflow-step__photo">
+                <img src="../assets/images/saushun/userFlow.png"
+                  alt="SauShun user flow diagram showing buyer and seller journey paths">
+                <p class="workflow-step__photo-caption">User flow diagram for buyers and sellers</p>
+              </div>
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  The user flow map shown beside was actually created by the tech team earlier in the process, before
+                  high‑fidelity design began. It is comprehensive, covering everything from registration and
+                  verification to payment, delivery options, tracking, and dispute resolution. However, some parts of
+                  this map are backend logic rather than UI‑relevant interactions. My role as a designer was to filter
+                  through this complexity and identify which screens and flows actually needed to be built for the
+                  prototype.
+                </p>
+                <p class="workflow-step__text">
+                  Based on the map, I selected the following screens: basic registration and welcome page, main
+                  dashboard for buyers and sellers, a stats and commission page for sellers, a messaging system, seller
+                  post creation (supporting both regular posts and group buying), and the traveler task interface. These
+                  were the core surfaces needed to demonstrate the platform's value.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-step workflow-step--text-only">
+              <div class="workflow-step__content">
+                <p class="workflow-step__text">
+                  Using the high‑fidelity screens already designed, I built a clickable prototype covering just these
+                  selected areas. It does not simulate every backend‑driven step like escrow payment or delivery
+                  tracking. But for the purpose of the competition submission, this scope is sufficient. The prototype
+                  clearly shows how buyers and sellers navigate their respective dashboards, create posts, communicate,
+                  view earnings, and accept tasks. It keeps the experience focused, coherent, and true to our minimal
+                  warm vision.
+                </p>
+              </div>
+            </div>
+
+          </section>
+
 
         </div><!-- /#tab-process -->
       </div><!-- /.cs-tabs -->
@@ -82,4 +385,5 @@
   <script src="../js/lightbox.js"></script>
   <script src="../js/casestudy.js"></script>
 </body>
+
 </html>

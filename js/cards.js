@@ -12,7 +12,7 @@
 function buildProjectCard(project, thumbPrefix = "") {
   const li = document.createElement("li");
   li.className = "project-card";
-  const startDate = project.overview?.since ? `<span class="project-card__since">${project.overview.since}</span>` : "";
+  const startDate = project.overview?.started ? `<span class="project-card__started">${project.overview.started}</span>` : "";
   li.innerHTML = `
     <a href="${thumbPrefix}${project.url}" class="project-card__link">
       <div class="project-card__thumb">

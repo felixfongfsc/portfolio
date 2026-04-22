@@ -281,7 +281,7 @@ function buildGallery(container, images) {
     const labels = {
       role:     'Role',
       timeline: 'Timeline',
-      since:  'Since',
+      started:  'Started',
       teamSize: 'Team Size',
       platform: 'Platform',
       tools:    'Tools',

@@ -21,6 +21,7 @@
   --font-body:    "Inter", system-ui, sans-serif;
   --font-work-sans: "Work Sans", sans-serif;
   --font-wittgenstein: "Wittgenstein", serif;
+  --font-m-plus-roundedr-1c: "M PLUS Rounded 1c", sans-serif;
 
   /* Type scale — relative units (Requirement 5.4) */
   --text-xs:   0.75rem;
@@ -493,7 +494,7 @@ button {
   color: rgba(240, 240, 240, 0.5);
 }
 
-.works-highlights .project-card__since {
+.works-highlights .project-card__started {
   color: rgba(240, 240, 240, 0.5);
 }
 
@@ -587,7 +588,7 @@ button {
   gap: var(--space-2);
 }
 
-.project-card__since {
+.project-card__started {
   font-size: var(--text-xs);
   letter-spacing: 0.06em;
   color: color-mix(in srgb, var(--color-ink) 50%, transparent);
@@ -1022,6 +1023,11 @@ button {
   line-height: 1.8;
   color: color-mix(in srgb, var(--color-ink) 75%, transparent);
   max-width: 100%;
+  margin-bottom: var(--space-6);
+}
+
+.cs-description__text:last-child {
+  margin-bottom: 0;
 }
 
 /* ── Tab switcher ─────────────────────────────────────────────────────── */
@@ -1647,7 +1653,7 @@ button {
 @media (min-width: 48rem) {
   .workflow-step--left-photo .workflow-step__photo img,
   .workflow-step--right-photo .workflow-step__photo img {
-    max-height: 24rem;
+    max-height: 32rem;
     width: auto;
   }
   
@@ -2134,5 +2140,10 @@ button {
 
 .font-showcase__wittgenstein {
   font-family: var(--font-wittgenstein);
+  font-weight: bold;
+}
+
+.font-showcase__m-plus-roundedr-1c {
+  font-family: var(--font-m-plus-roundedr-1c);
   font-weight: bold;
 }
